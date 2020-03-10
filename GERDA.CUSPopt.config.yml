@@ -1,0 +1,40 @@
+
+#Configuration file to run the GERDA CUSP Filter optimization
+
+#Energy window to scan
+Energy:
+  - 12000
+  - 25000
+
+#Standard analysis = 0, Pulser anlysis = 1
+Pulser: 0
+
+#nanoseconds
+DAQBin: 40
+
+#GERDA detector configuration file
+DAQconfig: "./GERDA.DAQconfig.run95.txt"
+#DAQconfig: "./GERDA.DAQconfig.40.txt"
+
+# This will be used as suffix to the calibration directory name
+# DirSuffix: "FT12"
+
+#microseconds
+FilterLength: 155
+
+#For filter parameters: start value; stop value; step
+
+FlatTop:
+  - 1.0
+  - 1.0
+  - 0.5
+
+Sigma:
+  - 2
+  - 30
+  - 2
+
+Tau:
+  - 160
+  - 160
+  - 20

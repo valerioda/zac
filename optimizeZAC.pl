@@ -34,7 +34,7 @@ if($len > 4 ) {
 print "Skip = $skip\n";
 
 #Open the configuration file
-my $configfile = YAML::Tiny::LoadFile( $localdir . "/GERDA.CUSPopt.config.yml");
+my $configfile = YAML::Tiny::LoadFile( $localdir . "/config.yml");
 
 my $DAQconfigFile = $localdir . "/" . $configfile->{DAQconfig};
 
@@ -44,7 +44,7 @@ my $Emax = $configfile->{Energy}[1];
 my $TP = $configfile->{Pulser};
 
 my $binning = $configfile->{DAQBin};
-my $suffix = $configfile->{DirSuffix};
+#my $suffix = $configfile->{DirSuffix};
 
 my $filterLength = $configfile->{FilterLength};
 
@@ -86,10 +86,10 @@ umask 0000;
 my $thisCalibDir = $localdir . "/" . $tRun;
 mkdir "$thisCalibDir", 0770 unless -d "$thisCalibDir";
 
-$thisCalibDir = $thisCalibDir . "/calib" . $date . $suffix;
+$thisCalibDir = $thisCalibDir . "/calib" . $date;# . $suffix;
 mkdir "$thisCalibDir", 0770 unless -d "$thisCalibDir";
 
-$calibDir = $calibDir . "/" .$tRun;
+#$calibDir = $calibDir . "/" .$tRun;
 
 my $filelist = $thisCalibDir . "/GERDA_calib_" . $tRun . "_". $date . ".list";
 my $filelistTmp = $thisCalibDir . "/tmpGERDA_calib_" . $tRun . "_". $date . ".list";
@@ -109,18 +109,15 @@ if($extF==0) {
     }
     close OUT;
     closedir(DIR);
-}
-else {
-    $filelistTmp = $thisCalibDir . "/tmp" . $extFileList;
-    $filelist = $thisCalibDir . "/" . $extFileList;
-
-}
-my $sortListCmd = "sort " . $filelistTmp . " > " . $filelist;
-system($sortListCmd);
-if($extF==0) {
+    
+    my $sortListCmd = "sort " . $filelistTmp . " > " . $filelist;
+    system($sortListCmd);
     unlink $filelistTmp or warn "Could not unlink $filelistTmp: $!";
 }
-
+else {
+    $filelist = $localdir . "/" . $extFileList;
+}
+print "filelist: " . $filelist . "\n";
 #### Create the results directory
 my $resdir = $thisCalibDir . "/Results";
 mkdir "$resdir", 0770 unless -d "$resdir";
@@ -151,17 +148,16 @@ if($skip==0) {
 		print "Submitting -> Flat Top: " . $currFlatTop . "  - Sigma: " . $currSigma . " - Tau: " . $currTau . "\n";
 
 		#### Running ZACFilter
-		my $filterName = "ZACfilter_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".txt";
-		my $filterCommand = $localdir . "/ZACfilter " . $binning . " " . $filterLength . " " . $currSigma . " " . $currFlatTop . " " . $currTau . " " . $filterName;
-
-		my $filterFile = $Taudir . "/" . $filterName;
+		my $filterFile = $Taudir . "/ZACfilter_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".txt";
+		my $filterout = $Taudir . "/ZACfilter_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".out";
+		my $filterCommand = $localdir . "/ZACfilter " . $Taudir . " " . $binning . " " . $filterLength . " " . $currSigma . " " . $currFlatTop . " " . $currTau . " " . $filterFile . " > " . $filterout;
 
 		#############
 
 		my $outputfile = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".tier2.root";
 		my $outputlogfile = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".log";
 
-		my $initobecopied = $localdir . "/GERDA.CUSPopt.template.ini";
+		my $initobecopied = $localdir . "/template.ini";
 		open IN, $initobecopied or die "Can't read source file $initobecopied: $!\n";
 
 		my $currini = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".ini";
@@ -182,7 +178,8 @@ if($skip==0) {
 		
 		my $scriptlog = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".out";
 		my $scripterr = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".err";
-		my $jobName = $date . "_" . $tRun . "_" . $pNumb;
+		#my $jobName = $date . "_" . $tRun . "_" . $pNumb;
+		my $jobName = "z" . $date . $pNumb;
 		my $command = "execModuleIni " . $currini . " >& " . $scriptlog;
 		
 		my $calibProgram = $localdir . "/energyCalibration";
@@ -193,7 +190,7 @@ if($skip==0) {
 		print OUT $outputfile . "\n";
 		close OUT;
 		
-		my $cmd_analysis = $calibProgram . " -t " . $currFileList . " -o -f 0 -m 1 -c " . $DAQconfigFile . " -F 1 -r " . $run . " -T " . $TP . " -z " . $currSigma . "," . $currFlatTop . "," . $currTau . "," . $filterLength . " > " . $rootout;
+		my $cmd_analysis = $calibProgram . " -D " . $Taudir . " -t " . $currFileList . " -o -f 0 -m 1 -c " . $DAQconfigFile . " -F 1 -r " . $run . " -T " . $TP . " -z " . $currSigma . "," . $currFlatTop . "," . $currTau . "," . $filterLength . " > " . $rootout;
 		
 		my $scripttobecopied = $localdir . "/script.template.sh";
 		open IN, $scripttobecopied or die "Can't read source file $scripttobecopied: $!\n";
@@ -214,7 +211,7 @@ if($skip==0) {
 
 		### submit job to queue
 
-		my $QUEUEcmd = "qsub -N " . $jobName . " -q gerda -V -d " . $Taudir . " -m abe -e localhost:". $scripterr . " -o localhost:" . $scriptlog . " -l mem=4000mb " . $currscript;
+		my $QUEUEcmd = "qsub -P short -N " . $jobName . " -e localhost:". $scripterr . " -o localhost:" . $scriptlog . " " . $currscript;
 		system($QUEUEcmd);
 		print $QUEUEcmd . "\n";
 		$pNumb++;
@@ -242,8 +239,8 @@ my $time = substr($firstLine, $position+9, 6);
 print $time . "\n";
 
 
-#my $countJob = "qstat -u " . $myUser . " |  grep " . $userName . " | wc -l ";
-my $countJob = "qstat -u " . $myUser . " |  grep " . $date . "_" . $tRun . " | wc -l ";
+#my $countJob = "qstat -u " . $myUser . " |  grep " . $date . "_" . $tRun . " | wc -l ";
+my $countJob = "qstat -u " . $myUser . " |  grep " . $date . " | wc -l ";
 print $countJob . "\n";
 my $inQueue = 1;
 
@@ -251,7 +248,7 @@ my $scandir = $thisCalibDir;
 while ($inQueue) {
 
     if($skip==0) {
-	sleep 300;
+	sleep 30;
     }
     my $actualJob = `$countJob`;
     print $actualJob;
@@ -263,15 +260,15 @@ while ($inQueue) {
 	mkdir "$scandir", 0770 unless -d "$scandir";
 
 	#### Loop on channels
-	for(my $channel = 0; $channel < $totalChannels; $channel++)  {
+	for(my $channel = 24; $channel < 24+$totalChannels; $channel++)  {
 	    #if ( !($run > 68 && $channel == 7) ){
-	    my $currFile = $scandir . "/CUSPopt_analysis_channel" . $channel . "_length155.000000.dat";
-	    my $cutCmd = "cat " . $resdir . "/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel" . $channel . "_length*.dat > " . $currFile;
+	    my $currFile = $scandir . "/ZAC-FWHM_channel" . $channel . ".txt";
+	    my $cutCmd = "cat " . $resdir . "/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn" . $channel . ".txt > " . $currFile;
 	    system($cutCmd);
 	    #}
 	}
 
-	my $analysisCmd = $localdir . "/scanOptZACGraph " . $scandir . " " . $run . " " . $totalChannels . " " . $date  . " " . $time  . " " . " " . $plotType . " " . $savePlots  . " " . $plot . " " . $chi2Limit . " >& " .$scandir . "/scanOptZACGraph.out";
+	my $analysisCmd = $localdir . "/scanOptZACGraph " . $scandir . " " . $run . " " . $totalChannels+24 . " " . $date  . " " . $time  . " " . " " . $plotType . " " . $savePlots  . " " . $plot . " " . $chi2Limit . " >& " .$scandir . "/scanOptZACGraph.out";
 
 	system($analysisCmd);
 
@@ -282,7 +279,7 @@ while ($inQueue) {
 umask $old_umask;
 
 my $from = 'optimizeZAC';
-my $to = 'francesco.salamida\@aquila.infn.it, valerio.dandrea\@lngs.infn.it';
+my $to = 'valerio.dandrea\@lngs.infn.it';
 my $subject = $tRun . "-" . $date . "T" . $time . "Z";
 my $jsonfile = $scandir . "gerda-" . $tRun . "-" . $date . "T" . $time . "Z-cal-ged-tier2-calib.json";
 my $body = "Hi, \n this is an automatic message from ZAC filter optimization of calibration:\n". $tRun . " " . $date . " " . $time . " \n\n";

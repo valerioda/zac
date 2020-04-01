@@ -24,24 +24,24 @@ int main( int argc, const char* argv[])
     usage();
     return 1;
   }
-  const double bin = atoi(argv[1]);
+  const char *resDir = argv[1];
+  const double bin = atoi(argv[2]);
   
   cout << "Binning of DAQ: " << bin << " ns" << endl;
   //parameters value in mu
-  const double  N_t = atof(argv[2]); //filter lenght
-  const double sigma_t = atof(argv[3]); //cusp par
-  const double FT_t = atof(argv[4]); //flat top
-  const double tau_t = atof(argv[5]); //preamplifier tau
+  const double  N_t = atof(argv[3]); //filter lenght
+  const double sigma_t = atof(argv[4]); //cusp par
+  const double FT_t = atof(argv[5]); //flat top
+  const double tau_t = atof(argv[6]); //preamplifier tau
   cout << "ZAC parameters in mus(N,sigma,FT,tau): " 
        << N_t << ", " << sigma_t << ", " << FT_t 
        << ", " << tau_t << endl;
   
-  char filename[100];
-  sprintf(filename,"ZACfilter_L%g_sigma%g_FT%g_tau%g.txt",N_t,sigma_t,FT_t,tau_t);
-  if(argc>6) sprintf(filename,"%s",argv[6]);
+  char *filename = Form("%s/ZACfilter_L%g_sigma%g_FT%g_tau%g.txt",resDir,N_t,sigma_t,FT_t,tau_t);
+  if (argc>7) filename = Form("%s",argv[7]);
  
   ofstream file(filename); 
-  ofstream file2("ZAC.txt"); 
+  ofstream file2(Form("%s/ZAC.txt",resDir)); 
   double FT_ns = FT_t*1000.;
   
   int N = N_t*1000./(double)bin;
@@ -171,7 +171,7 @@ int main( int argc, const char* argv[])
   legend->AddEntry(g_cusp,"cusp","l");
   legend->AddEntry(g_par,"parabolas","l");
   legend->Draw();
-  c1->Print("ZAC.pdf");  
+  c1->Print(Form("%s/ZAC.pdf",resDir));  
   
   //graph of deconvolved filter
   TGraph *g_dec = new TGraph (N,t,filtro);
@@ -193,7 +193,7 @@ int main( int argc, const char* argv[])
   TLegend *legend1 = new TLegend(.75,.80,.95,.95);
   legend1->AddEntry(g_dec,"final filter","l");
   legend1->Draw();
-  c2->Print("ZAC-dec.pdf");  
+  c2->Print(Form("%s/ZAC-dec.pdf",resDir));  
   return 0;
 }
 

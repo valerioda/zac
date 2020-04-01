@@ -79,7 +79,7 @@ int main(int argc, char *argv[]){
   myJSON << "    \"env\": {" << endl;
       
   char out_file[200];
-  sprintf(out_file,"%s/CUSPopt_analysis.dat",scanDir);
+  sprintf(out_file,"%s/ZACanalysis.txt",scanDir);
   std::ofstream myFile;
   myFile.open(out_file);
   
@@ -99,8 +99,7 @@ int main(int argc, char *argv[]){
   double minFT[nChn];
   
   for (int chn = 0; chn < nChn; chn++){
-    char name[200];
-    sprintf(name,"%s/CUSPopt_analysis_channel%d_length155.000000.dat",scanDir,chn);
+    char *name = Form("%s/ZAC-FWHM_channel%d.txt",scanDir,chn);
     cout << name << endl;
     //double ft_val = 1.;
     //double tau_val = 160.;

@@ -1,32 +1,4 @@
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 95 20180725 >& optimize-20180725.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 95 20180802 >& optimize-20180802.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 96 20180810 >& optimize-20180810.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 97 20180823 >& optimize-20180823.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 97 20180830 >& optimize-20180830.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 97 20180906 >& optimize-20180906.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 97 20180913 >& optimize-20180913.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 97 20180920 >& optimize-20180920.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 97 20180927 >& optimize-20180927.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 97 20181004 >& optimize-20181004.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 97 20181010 >& optimize-20181010.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 98 20181015 >& optimize-20181015.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 98 20181019 >& optimize-20181019.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 98 20181025 >& optimize-20181025.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 98 20181031 >& optimize-20181031.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 98 20181108 >& optimize-20181108.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 99 20181115 >& optimize-20181115.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 99 20181129 >& optimize-20181129.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 99 20181206 >& optimize-20181206.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 99 20181213 >& optimize-20181213.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 100 20181229 >& optimize-20181229.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 100 20190104 >& optimize-20190104.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 101 20190106 >& optimize-20190106.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 101 20190114 >& optimize-20190114.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 103 20190121 >& optimize-20190121.out &
-#nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 103 20190128 >& optimize-20190128.out &
-nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 104 20190131 >& optimize-20190131.out &
-nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 104 20190206 >& optimize-20190206.out &
-nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 104 20190215 >& optimize-20190215.out &
-nohup ./optimizeZAC.pl /nfs/gerda5/gerda-data/blind/v06.02/gen/tier1/ged/cal/ 104 20190225 >& optimize-20190225.out &
+nohup ./optimizeZAC.pl /lfs/l1/legend/daq_test/pgt/fc/tier1/run0118/cal/gerda/ 118 20200119 20200119-060921-calib-tier1.list >& optimize-20200119.out &
+
 
 

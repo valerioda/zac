@@ -73,7 +73,7 @@ const char* fitStatus[14] = {"CONVERGED", "ignored", "command unreadable", "unkn
 			     "SET COVAR command", "reserved", "END command", "EXIT or STOP command", "RETURN command", "STARTING STATE"};
 
 double gCalib = 1;
-const int nChannels = 41;
+const int nChannels = 65;
 int actualChannels = 0;
 int filterType = 1; // 0 = Gauss, 1 = ZAC, 2 = FADC
 int TP = 0;
@@ -100,6 +100,7 @@ int fcnType = 2; // 1 = binned fit, 2 = unbinned fit
 string tier2_dir = "/nfs/gerda5/gerda-data/blind/v06.02/gen/tier2/ged/cal/run0095/";
 string tier2_name = "";
 string configName = "";
+char *resultDir;
 int runNumber = -1;
 vector<double> filterParameters; // = {Sigma, FlatTop, Tau, Length}
 bool doAll = true;
@@ -153,6 +154,7 @@ int main(int argc, char *argv[]){
   //if (TP) rebinFactor = 20;
   const int maxCh = readConfig((char*)configName.c_str());
   cout << " Using tier2 keylist: " << tier2_name << endl;
+  cout << " Save results in the directory: " << resultDir << endl;
   cout << endl << " Reading configuration from file " << configName << endl;
   cout << " Run n." << runNumber  << endl;
   cout << " Energy filter is: ";
@@ -161,9 +163,9 @@ int main(int argc, char *argv[]){
   else cout << "GAUSS" << endl;
   for(unsigned int index=0; index<maxCh; ++index) {
     cout << "ch n." << index << " - " << channelsMapping[index];
-    if(detectorType[index] == 0 ) cout << " (enriched BEGe)";
-    else if(detectorType[index] == 1 ) cout << " (enriched Coaxial)";
-    else if(detectorType[index] == 2 ) cout << " (Coaxial)";
+    if(detectorType[index] == 0 ) cout << " (Enriched BEGe)";
+    else if(detectorType[index] == 1 ) cout << " (Enriched Coaxial)";
+    else if(detectorType[index] == 2 ) cout << " (Inverted Coaxial)";
     if(channelsToRun[index]) cout << " status: ON " << endl;
     else  cout << " status: OFF " << endl;
   }
@@ -248,7 +250,7 @@ int main(int argc, char *argv[]){
     if(j<10) sprintf(sch,"ch");
     else sprintf(sch,"ch");
     
-    char name_stream[50];
+    char* name_stream;
     /*
     sprintf(name_stream, "./par_linear_%s%i.txt", sch, j);
     ofstream ofs_lin;
@@ -275,9 +277,9 @@ int main(int argc, char *argv[]){
     ene_quad.open(name_stream, ofstream::out);
     */
     if( filterType ==1)
-      sprintf(name_stream, "./ZAC-FWHM_chn%i.txt", j);
+      name_stream = Form("%s/ZAC-FWHM_chn%i.txt", resultDir, j);
     else 
-      sprintf(name_stream, "./FWHM_chn%i.txt", j);
+      name_stream = Form("%s/FWHM_chn%i.txt", resultDir, j);
     ofstream fwhm_file;
     fwhm_file.open(name_stream, ofstream::out);
     
@@ -614,8 +616,8 @@ int main(int argc, char *argv[]){
       //sprintf(out_file,"./FWHM_chn%i.txt",j);
       //std::ofstream myFile;
       //myFile.open (out_file, std::ios_base::app|std::ios_base::out);
-      cout << parameters.size() << endl;
-      cout << filterParameters.size() << endl;
+      //cout << parameters.size() << endl;
+      //cout << filterParameters.size() << endl;
       if (isnormal(chi2Fit) && FWHM_err < 1){
 	if (filterParameters.size()>0){
 	  if (filterType==2)
@@ -666,12 +668,11 @@ int main(int argc, char *argv[]){
     } //loop on peaks
 
     c->cd();
-    char fileoutname[40];
-    
+    char *fileoutname;
     if(filterType == 1)
-      sprintf(fileoutname,"ZAC-Fit_ch%i.pdf", j);
+      fileoutname = Form("%s/ZAC-Fit_ch%i.pdf", resultDir, j);
     else
-      sprintf(fileoutname,"Fit_ch%i.pdf", j);
+      fileoutname = Form("%s/Fit_ch%i.pdf", resultDir, j);
     c->Print(fileoutname);
 
 
@@ -750,10 +751,7 @@ int main(int argc, char *argv[]){
       fwhmlabel->SetFillColor(0);
       fwhmlabel->Draw();
       cv->Update();
-
-      char outFitFWHM[40];
-      sprintf(outFitFWHM, "Fit_FWHM_chn%i.pdf", j);
-      cv->Print(outFitFWHM);
+      cv->Print(Form("%s/Fit_FWHM_chn%i.pdf", resultDir, j));
 
       cout << "Fit FWHM = sqrt((" << fwhmFitFunc.GetParameter(0)  << " +/- " << fwhmFitFunc.GetParError(0) <<
 	") + x * (" << fwhmFitFunc.GetParameter(1) << " +/- " << fwhmFitFunc.GetParError(1) << "))" << endl;
@@ -870,10 +868,7 @@ int main(int argc, char *argv[]){
       enelabel->SetFillColor(0);
       enelabel->Draw();
       cv2->Update();
-
-      char outFitEne[40];
-      sprintf(outFitEne, "Fit_Energy_linear_ch%i.pdf", j);
-      cv2->Print(outFitEne);
+      cv2->Print(Form("%s/Fit_Energy_linear_ch%i.pdf", resultDir, j));
 
       TCanvas* cv3 = new TCanvas(1);
       cv3->cd();
@@ -931,8 +926,7 @@ int main(int argc, char *argv[]){
 
       //ofs_quad << p0 << " " << p0err << " " << p1 << " " << p1err << " " << p2 << " " << p2err << endl;
 
-      sprintf(outFitEne, "Fit_Energy_quadratic_ch%i.pdf", j);
-      cv3->Print(outFitEne);
+      cv3->Print(Form("%s/Fit_Energy_quadratic_ch%i.pdf", resultDir, j));
       double thisRes2[SS];
       double thisRes2_err[SS];
       for (int ii=0; ii<yy.size(); ii++) {
@@ -965,9 +959,7 @@ int main(int argc, char *argv[]){
 	energyLabel->Draw("same");
       }
       cSpectrum->Update();
-      char outSpec[40];
-      sprintf(outSpec, "Spectrum_ch%i.pdf", j);
-      cSpectrum->Print(outSpec);
+      cSpectrum->Print(Form("%s/Spectrum_ch%i.pdf", resultDir,j));
       TCanvas* cResiduals = new TCanvas(1);
       cResiduals->cd();
 
@@ -993,10 +985,8 @@ int main(int argc, char *argv[]){
       leg->Draw();
 
       cResiduals->Update();
-      char outResiduals[40];
-      sprintf(outResiduals, "Residuals_ch%i.pdf", j);
-      cResiduals->Print(outResiduals);
-
+      cResiduals->Print(Form("%s/Residuals_ch%i.pdf", resultDir, j));
+      
       index++;
       //delete hSpectrum;
     } //if(doAll)
@@ -1025,10 +1015,13 @@ int main(int argc, char *argv[]){
 
 int getOptions(int argc, char **argv){
   int c;
-  while ((c = getopt(argc, argv, "c:d:f:F:m:o:r:t:T:z:")) != -1)
+  while ((c = getopt(argc, argv, "c:D:d:f:F:m:o:r:t:T:z:")) != -1)
     switch (c) {
     case 'c':
       configName = string(optarg);
+      break;
+    case 'D':
+      resultDir = optarg;
       break;
     case 'd':
       tier2_dir = string(optarg);
@@ -1058,7 +1051,7 @@ int getOptions(int argc, char **argv){
       string delimiter = ",";
       string s = string(optarg) + delimiter;
       size_t pos = 0;
-      for( int i = 0; i < 7; i++){
+      for( int i = 0; i < 4; i++){
 	pos = s.find(delimiter);
 	if (pos != string::npos){
 	  filterParameters.push_back(atof(s.substr(0, pos).c_str()));
@@ -1081,6 +1074,7 @@ void usage() {
   cout << "USAGE: ./energyCalibration [options]" << endl;
   cout << "List of options:" << endl;
   cout << " -c: configuration file" << endl;
+  cout << " -D: result directory" << endl;
   cout << " -d: directory of the tier2 file" << endl;
   cout << " -t: tier2 file name" << endl;
   cout << " -f: fit type (";

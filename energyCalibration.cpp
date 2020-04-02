@@ -214,9 +214,9 @@ int main(int argc, char *argv[]){
   for(int j=0; j<maxCh; j++) {
 
     if( filterType != 0 )
-      maxFADC[j] = 30000;
+      maxFADC[j] = 50000;
     else
-      maxFADC[j] = 10000;
+      maxFADC[j] = 30000;
 
     if(channelsToRun[j] == 0) {
       cout << endl <<  "******************* channel n." << j << " is OFF *******************" << endl << endl;

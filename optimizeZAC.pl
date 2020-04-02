@@ -36,6 +36,8 @@ print "Skip = $skip\n";
 #Open the configuration file
 my $configfile = YAML::Tiny::LoadFile( $localdir . "/config.yml");
 
+my $DAQ = $configfile->{DAQ};
+
 my $DAQconfigFile = $localdir . "/" . $configfile->{DAQconfig};
 
 my $Emin = $configfile->{Energy}[0];
@@ -83,7 +85,13 @@ else {
 my $old_umask = umask;
 umask 0000;
 
-my $thisCalibDir = $localdir . "/" . $tRun;
+
+my $thisCalibDir;
+if ( $DAQ == 1 ) {$thisCalibDir = $localdir . "/FlashCam";}
+if ( $DAQ == 0 ) {$thisCalibDir = $localdir . "/Struck";}
+mkdir "$thisCalibDir", 0770 unless -d "$thisCalibDir";
+
+$thisCalibDir = $thisCalibDir . "/" . $tRun;
 mkdir "$thisCalibDir", 0770 unless -d "$thisCalibDir";
 
 $thisCalibDir = $thisCalibDir . "/calib" . $date;# . $suffix;
@@ -227,7 +235,7 @@ my $plotType = 0;
 my $savePlots = 1;
 my $plot = 0;
 my $chi2Limit = 100;
-my $totalChannels = 41;
+my $totalChannels = 65;
 
 open my $file, '<', $filelist;
 my $firstLine = <$file>;
@@ -260,15 +268,15 @@ while ($inQueue) {
 	mkdir "$scandir", 0770 unless -d "$scandir";
 
 	#### Loop on channels
-	for(my $channel = 24; $channel < 24+$totalChannels; $channel++)  {
+	for(my $channel = 24; $channel < $totalChannels; $channel++)  {
 	    #if ( !($run > 68 && $channel == 7) ){
 	    my $currFile = $scandir . "/ZAC-FWHM_channel" . $channel . ".txt";
 	    my $cutCmd = "cat " . $resdir . "/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn" . $channel . ".txt > " . $currFile;
 	    system($cutCmd);
 	    #}
 	}
-
-	my $analysisCmd = $localdir . "/scanOptZACGraph " . $scandir . " " . $run . " " . $totalChannels+24 . " " . $date  . " " . $time  . " " . " " . $plotType . " " . $savePlots  . " " . $plot . " " . $chi2Limit . " >& " .$scandir . "/scanOptZACGraph.out";
+	
+	my $analysisCmd = $localdir . "/scanOptZACGraph " . $scandir . " " . $run . " " . $totalChannels . " " . $date  . " " . $time  . " " . " " . $plotType . " " . $savePlots  . " " . $plot . " " . $chi2Limit . " >& " .$scandir . "/scanOptZACGraph.out";
 
 	system($analysisCmd);
 
@@ -282,8 +290,9 @@ my $from = 'optimizeZAC';
 my $to = 'valerio.dandrea\@lngs.infn.it';
 my $subject = $tRun . "-" . $date . "T" . $time . "Z";
 my $jsonfile = $scandir . "gerda-" . $tRun . "-" . $date . "T" . $time . "Z-cal-ged-tier2-calib.json";
+my $resultsfile = $scandir . "/ZACanalysis.txt";
 my $body = "Hi, \n this is an automatic message from ZAC filter optimization of calibration:\n". $tRun . " " . $date . " " . $time . " \n\n";
-$body = $body . "In attachment you find the json file for the tier2 production. \n\n";
-$body = $body . "If this file is corrupted you can find it at LNGS: \n" . $jsonfile . "\n\n";
-my $sendMail = "echo \"". $body . "\" | mailx -s \"". $subject . "\" -r " . $from . " -a \"". $jsonfile . "\" " .  $to;
+#$body = $body . "In attachment you find the json file for the tier2 production. \n\n";
+#$body = $body . "If this file is corrupted you can find it at LNGS: \n" . $jsonfile . "\n\n";
+my $sendMail = "echo \"". $body . "\" | mailx -s \"". $subject . "\" -r " . $from . " -a \"". $resultsfile . "\" " .  $to;
 system($sendMail);

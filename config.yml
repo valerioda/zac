@@ -1,5 +1,7 @@
 
-#Configuration file to run the GERDA CUSP Filter optimization
+#Configuration file to run the GERDA ZAC Filter optimization
+#DAQ (0=Struck, 1 = FlashCam)
+DAQ: 1 
 
 #Energy window to scan
 Energy:
@@ -20,21 +22,21 @@ DAQconfig: "./DAQconfig-PGT-FlashCam.txt"
 # DirSuffix: "FT12"
 
 #microseconds
-FilterLength: 58
+FilterLength: 57
 
 #For filter parameters: start value; stop value; step
 
 FlatTop:
   - 1.0
   - 1.0
-  - 0.5
+  - 0.2
 
 Sigma:
+  - 10
+  - 10
   - 2
-  - 30
-  - 4
 
 Tau:
-  - 40
-  - 160
-  - 40
+  - 50
+  - 600
+  - 50

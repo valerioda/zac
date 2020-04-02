@@ -2,165 +2,209 @@ nohup: input ignorato
 Length = 4
 Skip = 0
 filelist: /lfs/l1/legend/users/dandrea/zac/20200119-060921-calib-tier1.list
-Submitting -> Flat Top: 1.0  - Sigma: 2 - Tau: 40
-Your job 2625635 ("z202001190") has been submitted
-qsub -P short -N z202001190 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_40mus/CUSPopt_L55_sigma2_FT1.0_tau40.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_40mus/CUSPopt_L55_sigma2_FT1.0_tau40.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_40mus/script.CUSPopt_L55_sigma2_FT1.0_tau40.sh
-Submitting -> Flat Top: 1.0  - Sigma: 2 - Tau: 80
-Your job 2625637 ("z202001191") has been submitted
-qsub -P short -N z202001191 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_80mus/CUSPopt_L55_sigma2_FT1.0_tau80.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_80mus/CUSPopt_L55_sigma2_FT1.0_tau80.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_80mus/script.CUSPopt_L55_sigma2_FT1.0_tau80.sh
-Submitting -> Flat Top: 1.0  - Sigma: 2 - Tau: 120
-Your job 2625639 ("z202001192") has been submitted
-qsub -P short -N z202001192 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_120mus/CUSPopt_L55_sigma2_FT1.0_tau120.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_120mus/CUSPopt_L55_sigma2_FT1.0_tau120.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_120mus/script.CUSPopt_L55_sigma2_FT1.0_tau120.sh
-Submitting -> Flat Top: 1.0  - Sigma: 2 - Tau: 160
-Your job 2625641 ("z202001193") has been submitted
-qsub -P short -N z202001193 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_160mus/CUSPopt_L55_sigma2_FT1.0_tau160.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_160mus/CUSPopt_L55_sigma2_FT1.0_tau160.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_2mus/Tau_160mus/script.CUSPopt_L55_sigma2_FT1.0_tau160.sh
-Submitting -> Flat Top: 1.0  - Sigma: 6 - Tau: 40
-Your job 2625643 ("z202001194") has been submitted
-qsub -P short -N z202001194 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_40mus/CUSPopt_L55_sigma6_FT1.0_tau40.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_40mus/CUSPopt_L55_sigma6_FT1.0_tau40.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_40mus/script.CUSPopt_L55_sigma6_FT1.0_tau40.sh
-Submitting -> Flat Top: 1.0  - Sigma: 6 - Tau: 80
-Your job 2625645 ("z202001195") has been submitted
-qsub -P short -N z202001195 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_80mus/CUSPopt_L55_sigma6_FT1.0_tau80.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_80mus/CUSPopt_L55_sigma6_FT1.0_tau80.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_80mus/script.CUSPopt_L55_sigma6_FT1.0_tau80.sh
-Submitting -> Flat Top: 1.0  - Sigma: 6 - Tau: 120
-Your job 2625647 ("z202001196") has been submitted
-qsub -P short -N z202001196 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_120mus/CUSPopt_L55_sigma6_FT1.0_tau120.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_120mus/CUSPopt_L55_sigma6_FT1.0_tau120.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_120mus/script.CUSPopt_L55_sigma6_FT1.0_tau120.sh
-Submitting -> Flat Top: 1.0  - Sigma: 6 - Tau: 160
-Your job 2625648 ("z202001197") has been submitted
-qsub -P short -N z202001197 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_160mus/CUSPopt_L55_sigma6_FT1.0_tau160.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_160mus/CUSPopt_L55_sigma6_FT1.0_tau160.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_6mus/Tau_160mus/script.CUSPopt_L55_sigma6_FT1.0_tau160.sh
-Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 40
-Your job 2625650 ("z202001198") has been submitted
-qsub -P short -N z202001198 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_40mus/CUSPopt_L55_sigma10_FT1.0_tau40.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_40mus/CUSPopt_L55_sigma10_FT1.0_tau40.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_40mus/script.CUSPopt_L55_sigma10_FT1.0_tau40.sh
-Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 80
-Your job 2625652 ("z202001199") has been submitted
-qsub -P short -N z202001199 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_80mus/CUSPopt_L55_sigma10_FT1.0_tau80.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_80mus/CUSPopt_L55_sigma10_FT1.0_tau80.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_80mus/script.CUSPopt_L55_sigma10_FT1.0_tau80.sh
-Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 120
-Your job 2625654 ("z2020011910") has been submitted
-qsub -P short -N z2020011910 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_120mus/CUSPopt_L55_sigma10_FT1.0_tau120.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_120mus/CUSPopt_L55_sigma10_FT1.0_tau120.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_120mus/script.CUSPopt_L55_sigma10_FT1.0_tau120.sh
-Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 160
-Your job 2625656 ("z2020011911") has been submitted
-qsub -P short -N z2020011911 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_160mus/CUSPopt_L55_sigma10_FT1.0_tau160.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_160mus/CUSPopt_L55_sigma10_FT1.0_tau160.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_160mus/script.CUSPopt_L55_sigma10_FT1.0_tau160.sh
-Submitting -> Flat Top: 1.0  - Sigma: 14 - Tau: 40
-Your job 2625658 ("z2020011912") has been submitted
-qsub -P short -N z2020011912 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_40mus/CUSPopt_L55_sigma14_FT1.0_tau40.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_40mus/CUSPopt_L55_sigma14_FT1.0_tau40.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_40mus/script.CUSPopt_L55_sigma14_FT1.0_tau40.sh
-Submitting -> Flat Top: 1.0  - Sigma: 14 - Tau: 80
-Your job 2625660 ("z2020011913") has been submitted
-qsub -P short -N z2020011913 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_80mus/CUSPopt_L55_sigma14_FT1.0_tau80.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_80mus/CUSPopt_L55_sigma14_FT1.0_tau80.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_80mus/script.CUSPopt_L55_sigma14_FT1.0_tau80.sh
-Submitting -> Flat Top: 1.0  - Sigma: 14 - Tau: 120
-Your job 2625662 ("z2020011914") has been submitted
-qsub -P short -N z2020011914 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_120mus/CUSPopt_L55_sigma14_FT1.0_tau120.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_120mus/CUSPopt_L55_sigma14_FT1.0_tau120.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_120mus/script.CUSPopt_L55_sigma14_FT1.0_tau120.sh
-Submitting -> Flat Top: 1.0  - Sigma: 14 - Tau: 160
-Your job 2625664 ("z2020011915") has been submitted
-qsub -P short -N z2020011915 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_160mus/CUSPopt_L55_sigma14_FT1.0_tau160.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_160mus/CUSPopt_L55_sigma14_FT1.0_tau160.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_14mus/Tau_160mus/script.CUSPopt_L55_sigma14_FT1.0_tau160.sh
-Submitting -> Flat Top: 1.0  - Sigma: 18 - Tau: 40
-Your job 2625665 ("z2020011916") has been submitted
-qsub -P short -N z2020011916 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_40mus/CUSPopt_L55_sigma18_FT1.0_tau40.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_40mus/CUSPopt_L55_sigma18_FT1.0_tau40.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_40mus/script.CUSPopt_L55_sigma18_FT1.0_tau40.sh
-Submitting -> Flat Top: 1.0  - Sigma: 18 - Tau: 80
-Your job 2625667 ("z2020011917") has been submitted
-qsub -P short -N z2020011917 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_80mus/CUSPopt_L55_sigma18_FT1.0_tau80.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_80mus/CUSPopt_L55_sigma18_FT1.0_tau80.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_80mus/script.CUSPopt_L55_sigma18_FT1.0_tau80.sh
-Submitting -> Flat Top: 1.0  - Sigma: 18 - Tau: 120
-Your job 2625668 ("z2020011918") has been submitted
-qsub -P short -N z2020011918 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_120mus/CUSPopt_L55_sigma18_FT1.0_tau120.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_120mus/CUSPopt_L55_sigma18_FT1.0_tau120.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_120mus/script.CUSPopt_L55_sigma18_FT1.0_tau120.sh
-Submitting -> Flat Top: 1.0  - Sigma: 18 - Tau: 160
-Your job 2625670 ("z2020011919") has been submitted
-qsub -P short -N z2020011919 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_160mus/CUSPopt_L55_sigma18_FT1.0_tau160.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_160mus/CUSPopt_L55_sigma18_FT1.0_tau160.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_18mus/Tau_160mus/script.CUSPopt_L55_sigma18_FT1.0_tau160.sh
-Submitting -> Flat Top: 1.0  - Sigma: 22 - Tau: 40
-Your job 2625672 ("z2020011920") has been submitted
-qsub -P short -N z2020011920 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_40mus/CUSPopt_L55_sigma22_FT1.0_tau40.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_40mus/CUSPopt_L55_sigma22_FT1.0_tau40.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_40mus/script.CUSPopt_L55_sigma22_FT1.0_tau40.sh
-Submitting -> Flat Top: 1.0  - Sigma: 22 - Tau: 80
-Your job 2625673 ("z2020011921") has been submitted
-qsub -P short -N z2020011921 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_80mus/CUSPopt_L55_sigma22_FT1.0_tau80.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_80mus/CUSPopt_L55_sigma22_FT1.0_tau80.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_80mus/script.CUSPopt_L55_sigma22_FT1.0_tau80.sh
-Submitting -> Flat Top: 1.0  - Sigma: 22 - Tau: 120
-Your job 2625675 ("z2020011922") has been submitted
-qsub -P short -N z2020011922 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_120mus/CUSPopt_L55_sigma22_FT1.0_tau120.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_120mus/CUSPopt_L55_sigma22_FT1.0_tau120.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_120mus/script.CUSPopt_L55_sigma22_FT1.0_tau120.sh
-Submitting -> Flat Top: 1.0  - Sigma: 22 - Tau: 160
-Your job 2625676 ("z2020011923") has been submitted
-qsub -P short -N z2020011923 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_160mus/CUSPopt_L55_sigma22_FT1.0_tau160.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_160mus/CUSPopt_L55_sigma22_FT1.0_tau160.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_22mus/Tau_160mus/script.CUSPopt_L55_sigma22_FT1.0_tau160.sh
-Submitting -> Flat Top: 1.0  - Sigma: 26 - Tau: 40
-Your job 2625678 ("z2020011924") has been submitted
-qsub -P short -N z2020011924 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_40mus/CUSPopt_L55_sigma26_FT1.0_tau40.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_40mus/CUSPopt_L55_sigma26_FT1.0_tau40.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_40mus/script.CUSPopt_L55_sigma26_FT1.0_tau40.sh
-Submitting -> Flat Top: 1.0  - Sigma: 26 - Tau: 80
-Your job 2625680 ("z2020011925") has been submitted
-qsub -P short -N z2020011925 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_80mus/CUSPopt_L55_sigma26_FT1.0_tau80.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_80mus/CUSPopt_L55_sigma26_FT1.0_tau80.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_80mus/script.CUSPopt_L55_sigma26_FT1.0_tau80.sh
-Submitting -> Flat Top: 1.0  - Sigma: 26 - Tau: 120
-Your job 2625681 ("z2020011926") has been submitted
-qsub -P short -N z2020011926 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_120mus/CUSPopt_L55_sigma26_FT1.0_tau120.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_120mus/CUSPopt_L55_sigma26_FT1.0_tau120.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_120mus/script.CUSPopt_L55_sigma26_FT1.0_tau120.sh
-Submitting -> Flat Top: 1.0  - Sigma: 26 - Tau: 160
-Your job 2625683 ("z2020011927") has been submitted
-qsub -P short -N z2020011927 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_160mus/CUSPopt_L55_sigma26_FT1.0_tau160.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_160mus/CUSPopt_L55_sigma26_FT1.0_tau160.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_26mus/Tau_160mus/script.CUSPopt_L55_sigma26_FT1.0_tau160.sh
-Submitting -> Flat Top: 1.0  - Sigma: 30 - Tau: 40
-Your job 2625685 ("z2020011928") has been submitted
-qsub -P short -N z2020011928 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_40mus/CUSPopt_L55_sigma30_FT1.0_tau40.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_40mus/CUSPopt_L55_sigma30_FT1.0_tau40.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_40mus/script.CUSPopt_L55_sigma30_FT1.0_tau40.sh
-Submitting -> Flat Top: 1.0  - Sigma: 30 - Tau: 80
-Your job 2625687 ("z2020011929") has been submitted
-qsub -P short -N z2020011929 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_80mus/CUSPopt_L55_sigma30_FT1.0_tau80.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_80mus/CUSPopt_L55_sigma30_FT1.0_tau80.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_80mus/script.CUSPopt_L55_sigma30_FT1.0_tau80.sh
-Submitting -> Flat Top: 1.0  - Sigma: 30 - Tau: 120
-Your job 2625688 ("z2020011930") has been submitted
-qsub -P short -N z2020011930 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_120mus/CUSPopt_L55_sigma30_FT1.0_tau120.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_120mus/CUSPopt_L55_sigma30_FT1.0_tau120.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_120mus/script.CUSPopt_L55_sigma30_FT1.0_tau120.sh
-Submitting -> Flat Top: 1.0  - Sigma: 30 - Tau: 160
-Your job 2625690 ("z2020011931") has been submitted
-qsub -P short -N z2020011931 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_160mus/CUSPopt_L55_sigma30_FT1.0_tau160.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_160mus/CUSPopt_L55_sigma30_FT1.0_tau160.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_30mus/Tau_160mus/script.CUSPopt_L55_sigma30_FT1.0_tau160.sh
+Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 50
+Your job 2714017 ("z202001190") has been submitted
+qsub -P short -N z202001190 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_50mus/CUSPopt_L57_sigma10_FT1.0_tau50.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_50mus/CUSPopt_L57_sigma10_FT1.0_tau50.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_50mus/script.CUSPopt_L57_sigma10_FT1.0_tau50.sh
+Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 100
+Your job 2714018 ("z202001191") has been submitted
+qsub -P short -N z202001191 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_100mus/CUSPopt_L57_sigma10_FT1.0_tau100.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_100mus/CUSPopt_L57_sigma10_FT1.0_tau100.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_100mus/script.CUSPopt_L57_sigma10_FT1.0_tau100.sh
+Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 150
+Your job 2714019 ("z202001192") has been submitted
+qsub -P short -N z202001192 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_150mus/CUSPopt_L57_sigma10_FT1.0_tau150.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_150mus/CUSPopt_L57_sigma10_FT1.0_tau150.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_150mus/script.CUSPopt_L57_sigma10_FT1.0_tau150.sh
+Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 200
+Your job 2714020 ("z202001193") has been submitted
+qsub -P short -N z202001193 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_200mus/CUSPopt_L57_sigma10_FT1.0_tau200.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_200mus/CUSPopt_L57_sigma10_FT1.0_tau200.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_200mus/script.CUSPopt_L57_sigma10_FT1.0_tau200.sh
+Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 250
+Your job 2714021 ("z202001194") has been submitted
+qsub -P short -N z202001194 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_250mus/CUSPopt_L57_sigma10_FT1.0_tau250.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_250mus/CUSPopt_L57_sigma10_FT1.0_tau250.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_250mus/script.CUSPopt_L57_sigma10_FT1.0_tau250.sh
+Submitting -> Flat Top: 1.0  - Sigma: 10 - Tau: 300
+Your job 2714022 ("z202001195") has been submitted
+qsub -P short -N z202001195 -e localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_300mus/CUSPopt_L57_sigma10_FT1.0_tau300.err -o localhost:/lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_300mus/CUSPopt_L57_sigma10_FT1.0_tau300.out /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_1.0mus/Sigma_10mus/Tau_300mus/script.CUSPopt_L57_sigma10_FT1.0_tau300.sh
 /lfs/l1/legend/daq_test/pgt/fc/tier1/run0118/cal/gerda/20200119-060921-calib-tier1_70.root
 
 position -> 55
 060921
 qstat -u dandrea |  grep 20200119 | wc -l 
-32
-32
-32
-32
-32
-32
-32
-32
-32
-32
-32
-32
-32
-32
-32
-32
-32
-25
-2
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
 0
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel0_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel1_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel2_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel3_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel4_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel5_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel6_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel7_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel8_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel9_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel10_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel11_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel12_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel13_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel14_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel15_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel16_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel17_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel18_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel19_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel20_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel21_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel22_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel23_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel24_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel25_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel26_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel27_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel28_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel29_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel30_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel31_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel32_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel33_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel34_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel35_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel36_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel37_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel38_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel39_length*.dat: File o directory non esistente
-cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/CUSPopt_analysis_channel40_length*.dat: File o directory non esistente
+cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn24.txt: File o directory non esistente
+cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn25.txt: File o directory non esistente
+cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn26.txt: File o directory non esistente
+cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn28.txt: File o directory non esistente
+cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn30.txt: File o directory non esistente
+cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn31.txt: File o directory non esistente
+cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn32.txt: File o directory non esistente
+cat: /lfs/l1/legend/users/dandrea/zac/run0118/calib20200119/Results/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn56.txt: File o directory non esistente

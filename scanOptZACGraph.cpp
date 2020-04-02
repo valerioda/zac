@@ -52,6 +52,8 @@ int main(int argc, char *argv[]){
   char* date = argv[4];//calibration date
   char* time = argv[5];
   
+  int firstChn = 24;
+  
   int ThreeDPlot = 0;
   if (argc > 6)
     ThreeDPlot = atoi(argv[6]);
@@ -97,10 +99,9 @@ int main(int argc, char *argv[]){
   double minSigma[nChn];
   double minTau[nChn];
   double minFT[nChn];
-  
-  for (int chn = 0; chn < nChn; chn++){
+
+  for (int chn = firstChn; chn < nChn; chn++){
     char *name = Form("%s/ZAC-FWHM_channel%d.txt",scanDir,chn);
-    cout << name << endl;
     //double ft_val = 1.;
     //double tau_val = 160.;
     ifstream file;
@@ -192,17 +193,17 @@ int main(int argc, char *argv[]){
 	  //g_1_3d->GetZaxis()->CenterTitle();
 	  //g_1_3d->GetZaxis()->SetRange(2, 4);
 	  c1->Update();
-	  if (save_pdf) c1->Print(Form("%s/ch%d_FWHMvsSigma-FT.pdf",scanDir,chn));
+	  if (save_pdf) c1->Print(Form("%s/ch%d_FWHMvsSigma-FT.pdf",scanDir,chn-firstChn));
 	}
 	else if( plot == 1 ) {
 	  g_1_2d = new TGraphErrors (j,FT_1,FWHM_1,0,FWHM_1_err);
 	  g_1_2d->SetMarkerColor(4);
 	  g_1_2d->SetLineColor(4);
-	  g_1_2d->SetTitle(Form(" %s - ZAC optimization - chn %d", date, chn));
+	  g_1_2d->SetTitle(Form(" %s - ZAC optimization - chn %d", date, chn-firstChn));
 	  g_1_2d->GetXaxis()->SetTitle("FT [#mus]");
 	  g_1_2d->GetYaxis()->SetTitle("FWHM [keV]");
-	  if (chn < 10) g_1_2d->SetName(Form("g_2d_chn0%d", chn));
-	  else g_1_2d->SetName(Form("g_2d_chn%d", chn));
+	  if (chn < 10) g_1_2d->SetName(Form("g_2d_chn0%d", chn-firstChn));
+	  else g_1_2d->SetName(Form("g_2d_chn%d", chn-firstChn));
 	  //g_1_2d->GetXaxis()->CenterTitle();
 	  //g_1_2d->GetYaxis()->CenterTitle();
 	  //	g_1_2d->GetYaxis()->SetRangeUser(2.4, 6);
@@ -212,17 +213,17 @@ int main(int argc, char *argv[]){
 	  g_1_2d->Write();
 	  //grafico->Close();
 	  c1->Update();
-	  if (save_pdf) c1->Print(Form("%s/ch%d_FWHMvsFT.pdf",scanDir,chn));
+	  if (save_pdf) c1->Print(Form("%s/ch%d_FWHMvsFT.pdf",scanDir,chn-firstChn));
 	}
 	else if( plot == 2 ) {
 	  g_1_2d = new TGraphErrors (nChn, tau, FWHM, 0,FWHM_err);
 	  g_1_2d->SetMarkerColor(4);
 	  g_1_2d->SetLineColor(4);
-	  g_1_2d->SetTitle(Form(" %s - ZAC optimization - chn %d", date, chn));
+	  g_1_2d->SetTitle(Form(" %s - ZAC optimization - chn %d", date, chn-firstChn));
 	  g_1_2d->GetXaxis()->SetTitle("tau [#mus]");
 	  g_1_2d->GetYaxis()->SetTitle("FWHM [keV]");
-	  if (chn < 10) g_1_2d->SetName(Form("g_2d_chn0%d", chn));
-	  else g_1_2d->SetName(Form("g_2d_chn%d", chn));
+	  if (chn < 10) g_1_2d->SetName(Form("g_2d_chn0%d", chn-firstChn));
+	  else g_1_2d->SetName(Form("g_2d_chn%d", chn-firstChn));
 	  g_1_2d->GetXaxis()->CenterTitle();
 	  g_1_2d->GetYaxis()->CenterTitle();
 	  //	g_1_2d->GetYaxis()->SetRangeUser(2.4, 6);
@@ -232,17 +233,17 @@ int main(int argc, char *argv[]){
 	  g_1_2d->Write();
 	  //grafico->Close();
 	  c1->Update();
-	  if (save_pdf) c1->Print(Form("%s/ch%d_FWHMvsTau.pdf",scanDir,chn));
+	  if (save_pdf) c1->Print(Form("%s/ch%d_FWHMvsTau.pdf",scanDir,chn-firstChn));
 	}
 	else {
 	  g_1_2d = new TGraphErrors (j,sigma_1,FWHM_1,0,FWHM_1_err);
 	  g_1_2d->SetMarkerColor(4);
 	  g_1_2d->SetLineColor(4);
-	  g_1_2d->SetTitle(Form(" %s - ZAC optimization - chn %d", date, chn));
+	  g_1_2d->SetTitle(Form(" %s - ZAC optimization - chn %d", date, chn-firstChn));
 	  g_1_2d->GetXaxis()->SetTitle("Sigma [#mus]");
 	  g_1_2d->GetYaxis()->SetTitle("FWHM [keV]");
-	  if (chn < 10) g_1_2d->SetName(Form("g_2d_chn0%d", chn));
-	  else g_1_2d->SetName(Form("g_2d_chn%d", chn));
+	  if (chn < 10) g_1_2d->SetName(Form("g_2d_chn0%d", chn-firstChn));
+	  else g_1_2d->SetName(Form("g_2d_chn%d", chn-firstChn));
 	  //g_1_2d->GetXaxis()->CenterTitle();
 	  //g_1_2d->GetYaxis()->CenterTitle();
 	  //	g_1_2d->GetYaxis()->SetRangeUser(2.4, 6);
@@ -251,7 +252,7 @@ int main(int argc, char *argv[]){
 	  grafico->cd();	
 	  g_1_2d->Write();
 	  c1->Update();
-	  if (save_pdf) c1->Print(Form("%s/ch%d_FWHMvsSigma.pdf",scanDir,chn));  
+	  if (save_pdf) c1->Print(Form("%s/ch%d_FWHMvsSigma.pdf",scanDir,chn-firstChn));  
 	}
       }
     }
@@ -266,7 +267,7 @@ int main(int argc, char *argv[]){
   }
   grafico->Close();
   
-  for (int chn = 0; chn < nChn; chn++){
+  for (int chn = firstChn; chn < nChn; chn++){
     char out[200];
     char ini[200];
     char ini2[200];
@@ -275,32 +276,33 @@ int main(int argc, char *argv[]){
     
     
     if (chn < 10)
-      sprintf(out,"%d  %4.2f %4.2f %g %3.0f %.0f \n",chn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
+      sprintf(out,"%d  %4.2f %4.2f %g %3.0f %.0f \n",chn-firstChn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
     else
-      sprintf(out,"%d %4.2f %4.2f %g %3.0f %.0f \n",chn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
-    sprintf(ini,"FilterName[%d]=/nfs/gerda2/LNGSMiB/ZAC_filters/ZACfilter_L155_sigma%.0f_FT%g_tau%.0f.txt",chn, minSigma[chn], minFT[chn], minTau[chn]);
-    sprintf(ini2,"PulserFilterName[%d]=/nfs/gerda2/LNGSMiB/ZAC_filters/ZACfilter_L155_sigma%.0f_FT%g_tau%.0f.txt",chn, minSigma[chn], minFT[chn], minTau[chn]);
-    if ( chn >= 36 && run > 93) {
+      sprintf(out,"%d %4.2f %4.2f %g %3.0f %.0f \n",chn-firstChn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
+    sprintf(ini,"FilterName[%d]=/nfs/gerda2/LNGSMiB/ZAC_filters/ZACfilter_L155_sigma%.0f_FT%g_tau%.0f.txt",chn-firstChn, minSigma[chn], minFT[chn], minTau[chn]);
+    sprintf(ini2,"PulserFilterName[%d]=/nfs/gerda2/LNGSMiB/ZAC_filters/ZACfilter_L155_sigma%.0f_FT%g_tau%.0f.txt",chn-firstChn, minSigma[chn], minFT[chn], minTau[chn]);
+    //if ( chn >= 36 && run > 93) {
+    if ( chn >= 60 && run > 93) {
       if (chn == (nChn-1))
-	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\"",chn, minSigma[chn], minTau[chn]);
+	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\"",chn-firstChn, minSigma[chn], minTau[chn]);
       else
-	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\",",chn, minSigma[chn], minTau[chn]);
+	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\",",chn-firstChn, minSigma[chn], minTau[chn]);
       
       if (chn == (nChn-1))
-	sprintf(JSON_out2,"      \"zac_filter_pulser_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\"",chn, minSigma[chn], minTau[chn]);
+	sprintf(JSON_out2,"      \"zac_filter_pulser_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\"",chn-firstChn, minSigma[chn], minTau[chn]);
       else
-	sprintf(JSON_out2,"      \"zac_filter_pulser_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\",",chn, minSigma[chn], minTau[chn]);
+	sprintf(JSON_out2,"      \"zac_filter_pulser_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\",",chn-firstChn, minSigma[chn], minTau[chn]);
     } 
     else {
       if (chn == (nChn-1))
-	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1_tau%.0f\"",chn, minSigma[chn], minTau[chn]);
+	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1_tau%.0f\"",chn-firstChn, minSigma[chn], minTau[chn]);
       else
-	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1_tau%.0f\",",chn, minSigma[chn], minTau[chn]);
+	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1_tau%.0f\",",chn-firstChn, minSigma[chn], minTau[chn]);
       
       if (chn == (nChn-1))
-	sprintf(JSON_out2,"      \"zac_filter_pulser_%d\": \"L155_sigma%.0f_FT1_tau%.0f\"",chn, minSigma[chn], minTau[chn]);
+	sprintf(JSON_out2,"      \"zac_filter_pulser_%d\": \"L155_sigma%.0f_FT1_tau%.0f\"",chn-firstChn, minSigma[chn], minTau[chn]);
       else
-	sprintf(JSON_out2,"      \"zac_filter_pulser_%d\": \"L155_sigma%.0f_FT1_tau%.0f\",",chn, minSigma[chn], minTau[chn]);
+	sprintf(JSON_out2,"      \"zac_filter_pulser_%d\": \"L155_sigma%.0f_FT1_tau%.0f\",",chn-firstChn, minSigma[chn], minTau[chn]);
     }
     
     myFile << out;

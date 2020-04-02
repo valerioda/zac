@@ -7,6 +7,6 @@ export PATH="/lfs/l1/legend/users/dandrea/software/swmod/bin:$PATH"
 export SWMOD_INST_BASE=/lfs/l1/gerda/kermaidy/Analysis/software
 export SWMOD_MODPATH=/lfs/l1/gerda/kermaidy/Analysis/software
 export SWMOD_HOSTSPEC=linux-scientific-7.2-x86_64
-export GERDAINSTALL=$GERDA_SOFTWARE/gerda/linux-scientific-7.2-x86_64/master
+export GERDAINSTALL=/lfs/l1/gerda/kermaidy/Analysis/software/gerda/linux-scientific-7.2-x86_64/master
 swmod load gerda@master
 

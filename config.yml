@@ -1,18 +1,22 @@
 
 #Configuration file to run the GERDA ZAC Filter optimization
 #DAQ (0=Struck, 1 = FlashCam)
-DAQ: 1 
+DAQ: 1
 
 #Energy window to scan
 Energy:
   - 25000
   - 70000
+#Energy:
+#  - 12000
+#  - 25000
 
 #Standard analysis = 0, Pulser anlysis = 1
 Pulser: 0
 
 #nanoseconds
 DAQBin: 16
+#DAQBin: 40
 
 #GERDA detector configuration file
 #DAQconfig: "./GERDA.DAQconfig.run95.txt"
@@ -23,6 +27,7 @@ DAQconfig: "./DAQconfig-PGT-FlashCam.txt"
 
 #microseconds
 FilterLength: 57
+#FilterLength: 155
 
 #For filter parameters: start value; stop value; step
 
@@ -32,11 +37,11 @@ FlatTop:
   - 0.2
 
 Sigma:
-  - 10
-  - 10
+  - 2
+  - 30
   - 2
 
 Tau:
-  - 50
-  - 600
+  - 160
+  - 160
   - 50

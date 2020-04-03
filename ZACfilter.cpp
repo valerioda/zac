@@ -19,26 +19,32 @@ int main( int argc, const char* argv[])
   
   //cout << argc << endl;
 
-  if(argc<6) {
-    
+  if(argc<7) {
     usage();
     return 1;
   }
   const char *resDir = argv[1];
   const double bin = atoi(argv[2]);
   
-  cout << "Binning of DAQ: " << bin << " ns" << endl;
   //parameters value in mu
   const double  N_t = atof(argv[3]); //filter lenght
   const double sigma_t = atof(argv[4]); //cusp par
   const double FT_t = atof(argv[5]); //flat top
   const double tau_t = atof(argv[6]); //preamplifier tau
+  int daq = 0;
+  if (argc>7) daq = atoi(argv[7]); //preamplifier tau
+  
+  if( daq == 1 ) cout << "FlashCam Data" << endl;
+  else cout << "Struck Data" << endl;
+  
+  cout << "Binning of DAQ: " << bin << " ns" << endl;
   cout << "ZAC parameters in mus(N,sigma,FT,tau): " 
        << N_t << ", " << sigma_t << ", " << FT_t 
        << ", " << tau_t << endl;
   
+  
   char *filename = Form("%s/ZACfilter_L%g_sigma%g_FT%g_tau%g.txt",resDir,N_t,sigma_t,FT_t,tau_t);
-  if (argc>7) filename = Form("%s",argv[7]);
+  if (argc>8) filename = Form("%s",argv[8]);
  
   ofstream file(filename); 
   ofstream file2(Form("%s/ZAC.txt",resDir)); 
@@ -124,19 +130,19 @@ int main( int argc, const char* argv[])
   for (int i = 0; i < N; i++){
     int i1 = i;
     tmp = 0.;
-    for (int j = 0; j < 2; j++)
-      {
-	if(i1 >= 0 && i1 < N)
-	  tmp = tmp + (zac[i1]*filtro_dec[j]);
-	i1 = i1-1;
-      }
+    for (int j = 0; j < 2; j++){
+      if(i1 >= 0 && i1 < N)
+	tmp = tmp + (zac[i1]*filtro_dec[j]);
+      i1 = i1-1;
+    }
+    //if ( daq == 1 ) filtro[i] = tmp;
+    //else filtro[i] = -tmp;
     filtro[i] = tmp;
   }
-  for (int i = 1; i < N; i++)
-    {
-      file << filtro[i] << endl;
-      file2 << zac[i] << endl;
-    }
+  for (int i = 1; i < N; i++){
+    file << filtro[i] << endl;
+    file2 << zac[i] << endl;
+  }
   file.close();
   file2.close();
   

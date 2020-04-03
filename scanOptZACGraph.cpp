@@ -49,23 +49,22 @@ int main(int argc, char *argv[]){
   char* scanDir = argv[1];//scan path
   int run = atoi(argv[2]);//number of run
   const int nChn = atoi(argv[3]);//number of total channels
-  char* date = argv[4];//calibration date
-  char* time = argv[5];
-  
-  int firstChn = 24;
+  int firstChn = atoi(argv[4]);
+  char* date = argv[5];//calibration date
+  char* time = argv[6];
   
   int ThreeDPlot = 0;
-  if (argc > 6)
-    ThreeDPlot = atoi(argv[6]);
-  int save_pdf = 1;
   if (argc > 7)
-    save_pdf = atoi(argv[7]);
-  double plot = 0.;
+    ThreeDPlot = atoi(argv[7]);
+  int save_pdf = 1;
   if (argc > 8)
-    plot = atof(argv[8]);
-  double chi_lim = 100.;
+    save_pdf = atoi(argv[8]);
+  double plot = 0.;
   if (argc > 9)
-    chi_lim = atof(argv[9]);
+    plot = atof(argv[9]);
+  double chi_lim = 100.;
+  if (argc > 10)
+    chi_lim = atof(argv[10]);
   
   //-------------------------------------------------------//
   
@@ -325,5 +324,3 @@ int main(int argc, char *argv[]){
   //myapp->Run();
   return 0;
 }
-  
-

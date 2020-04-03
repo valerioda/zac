@@ -158,14 +158,16 @@ if($skip==0) {
 		#### Running ZACFilter
 		my $filterFile = $Taudir . "/ZACfilter_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".txt";
 		my $filterout = $Taudir . "/ZACfilter_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".out";
-		my $filterCommand = $localdir . "/ZACfilter " . $Taudir . " " . $binning . " " . $filterLength . " " . $currSigma . " " . $currFlatTop . " " . $currTau . " " . $filterFile . " > " . $filterout;
+		my $filterCommand = $localdir . "/ZACfilter " . $Taudir . " " . $binning . " " . $filterLength . " " . $currSigma . " " . $currFlatTop . " " . $currTau . " " . $DAQ . " " . $filterFile . " > " . $filterout;
 
 		#############
 
 		my $outputfile = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".tier2.root";
 		my $outputlogfile = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".log";
 
-		my $initobecopied = $localdir . "/template.ini";
+		my $initobecopied;
+		if ( $DAQ==1) {$initobecopied = $localdir . "/template.ini";}
+		else {$initobecopied = $localdir . "/template_GERDA.ini";}
 		open IN, $initobecopied or die "Can't read source file $initobecopied: $!\n";
 
 		my $currini = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".ini";
@@ -187,7 +189,8 @@ if($skip==0) {
 		my $scriptlog = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".out";
 		my $scripterr = $Taudir . "/CUSPopt_L". $filterLength . "_sigma" . $currSigma . "_FT" . $currFlatTop . "_tau" . $currTau . ".err";
 		#my $jobName = $date . "_" . $tRun . "_" . $pNumb;
-		my $jobName = "z" . $date . $pNumb;
+		my $jobName = "s" . $date . $pNumb;
+		if ($DAQ==1) {$jobName = "f" . $date . $pNumb; }
 		my $command = "execModuleIni " . $currini . " >& " . $scriptlog;
 		
 		my $calibProgram = $localdir . "/energyCalibration";
@@ -235,7 +238,9 @@ my $plotType = 0;
 my $savePlots = 1;
 my $plot = 0;
 my $chi2Limit = 100;
-my $totalChannels = 65;
+my $firstChn = 0;
+if ($DAQ==1) { $firstChn = 24;}
+my $totalChannels = 41 + $firstChn;
 
 open my $file, '<', $filelist;
 my $firstLine = <$file>;
@@ -248,7 +253,8 @@ print $time . "\n";
 
 
 #my $countJob = "qstat -u " . $myUser . " |  grep " . $date . "_" . $tRun . " | wc -l ";
-my $countJob = "qstat -u " . $myUser . " |  grep " . $date . " | wc -l ";
+my $countJob = "qstat -u " . $myUser . " |  grep s" . $date . " | wc -l ";
+if ($DAQ==1) { $countJob = "qstat -u " . $myUser . " |  grep f" . $date . " | wc -l ";}
 print $countJob . "\n";
 my $inQueue = 1;
 
@@ -268,16 +274,16 @@ while ($inQueue) {
 	mkdir "$scandir", 0770 unless -d "$scandir";
 
 	#### Loop on channels
-	for(my $channel = 24; $channel < $totalChannels; $channel++)  {
+	for(my $channel = $firstChn; $channel < $totalChannels; $channel++)  {
 	    #if ( !($run > 68 && $channel == 7) ){
 	    my $currFile = $scandir . "/ZAC-FWHM_channel" . $channel . ".txt";
 	    my $cutCmd = "cat " . $resdir . "/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn" . $channel . ".txt > " . $currFile;
 	    system($cutCmd);
 	    #}
 	}
-	
-	my $analysisCmd = $localdir . "/scanOptZACGraph " . $scandir . " " . $run . " " . $totalChannels . " " . $date  . " " . $time  . " " . " " . $plotType . " " . $savePlots  . " " . $plot . " " . $chi2Limit . " >& " .$scandir . "/scanOptZACGraph.out";
 
+	my $analysisCmd = $localdir . "/scanOptZACGraph " . $scandir . " " . $run . " " . $totalChannels . " " . $firstChn . " " . $date  . " " . $time  . " " . " " . $plotType . " " . $savePlots  . " " . $plot . " " . $chi2Limit . " >& " .$scandir . "/scanOptZACGraph.out";
+	print $analysisCmd . "\n";
 	system($analysisCmd);
 
     }

@@ -53,6 +53,8 @@ int main(int argc, char *argv[]){
   char* date = argv[5];//calibration date
   char* time = argv[6];
   
+
+  
   int ThreeDPlot = 0;
   if (argc > 7)
     ThreeDPlot = atoi(argv[7]);
@@ -280,8 +282,8 @@ int main(int argc, char *argv[]){
       sprintf(out,"%d %4.2f %4.2f %g %3.0f %.0f \n",chn-firstChn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
     sprintf(ini,"FilterName[%d]=/nfs/gerda2/LNGSMiB/ZAC_filters/ZACfilter_L155_sigma%.0f_FT%g_tau%.0f.txt",chn-firstChn, minSigma[chn], minFT[chn], minTau[chn]);
     sprintf(ini2,"PulserFilterName[%d]=/nfs/gerda2/LNGSMiB/ZAC_filters/ZACfilter_L155_sigma%.0f_FT%g_tau%.0f.txt",chn-firstChn, minSigma[chn], minFT[chn], minTau[chn]);
-    //if ( chn >= 36 && run > 93) {
-    if ( chn >= 60 && run > 93) {
+    
+    if ( (chn>=36+firstChn) && run > 93) {
       if (chn == (nChn-1))
 	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\"",chn-firstChn, minSigma[chn], minTau[chn]);
       else

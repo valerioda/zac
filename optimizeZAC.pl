@@ -80,6 +80,7 @@ elsif($run<1000) {
 else {
     $tRun = $tRun . "" . $run;
 }
+if($run==119) {$tRun = "new-head";}
 
 # save current umask
 my $old_umask = umask;
@@ -237,10 +238,11 @@ if($skip==0) {
 my $plotType = 0;
 my $savePlots = 1;
 my $plot = 0;
-my $chi2Limit = 100;
+my $chi2Limit = 1;
 my $firstChn = 0;
 if ($DAQ==1) { $firstChn = 24;}
 my $totalChannels = 41 + $firstChn;
+if ($run==119) {$totalChannels = 12 + $firstChn;}
 
 open my $file, '<', $filelist;
 my $firstLine = <$file>;
@@ -274,10 +276,15 @@ while ($inQueue) {
 	mkdir "$scandir", 0770 unless -d "$scandir";
 
 	#### Loop on channels
+	
 	for(my $channel = $firstChn; $channel < $totalChannels; $channel++)  {
 	    #if ( !($run > 68 && $channel == 7) ){
+	    my $isInverted = 0;
+	    if ( $run>=95 && $channel>=$firstChn+36 ){ $isInverted = 1;}
+	    if ( ($run==119) && ($channel==32 || $channel==33) ){ $isInverted = 1;}
 	    my $currFile = $scandir . "/ZAC-FWHM_channel" . $channel . ".txt";
-	    my $cutCmd = "cat " . $resdir . "/FT_*/Sigma_*/Tau_*/ZAC-FWHM_chn" . $channel . ".txt > " . $currFile;
+	    my $cutCmd = "cat " . $resdir . "/FT_1.0mus/Sigma_*/Tau_*/ZAC-FWHM_chn" . $channel . ".txt > " . $currFile;
+	    if ($isInverted) {$cutCmd = "cat " . $resdir . "/FT_1.5mus/Sigma_*/Tau_*/ZAC-FWHM_chn" . $channel . ".txt > ".$currFile;}
 	    system($cutCmd);
 	    #}
 	}
@@ -299,6 +306,6 @@ my $jsonfile = $scandir . "gerda-" . $tRun . "-" . $date . "T" . $time . "Z-cal-
 my $resultsfile = $scandir . "/ZACanalysis.txt";
 my $body = "Hi, \n this is an automatic message from ZAC filter optimization of calibration:\n". $tRun . " " . $date . " " . $time . " \n\n";
 $body = $body . "In attachment you find the json file for the tier2 production. \n\n";
-$body = $body . "If this file is corrupted you can find it at LNGS: \n" . $jsonfile . "\n\n";
+$body = $body . "If this file is corrupted you can find it on the mpi-hd.mpg.de cluster: \n" . $jsonfile . "\n\n";
 my $sendMail = "echo \"". $body . "\" | mailx -s \"". $subject . "\" -r " . $from . " -a \"". $resultsfile . "\" -a \"". $jsonfile . "\" " .  $to;
 system($sendMail);

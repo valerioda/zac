@@ -53,8 +53,6 @@ int main(int argc, char *argv[]){
   char* date = argv[5];//calibration date
   char* time = argv[6];
   
-
-  
   int ThreeDPlot = 0;
   if (argc > 7)
     ThreeDPlot = atoi(argv[7]);
@@ -64,7 +62,7 @@ int main(int argc, char *argv[]){
   double plot = 0.;
   if (argc > 9)
     plot = atof(argv[9]);
-  double chi_lim = 100.;
+  double chi_lim = 1.;
   if (argc > 10)
     chi_lim = atof(argv[10]);
   
@@ -75,6 +73,7 @@ int main(int argc, char *argv[]){
   else if ( run < 100) sprintf(JSON_file,"%s/gerda-run00%d-%sT%sZ-cal-ged-tier2-calib.json",scanDir,run,date,time);
   else if ( run < 1000) sprintf(JSON_file,"%s/gerda-run0%d-%sT%sZ-cal-ged-tier2-calib.json",scanDir,run,date,time);
   else sprintf(JSON_file,"%s/gerda-run%d-%sT%sZ-cal-ged-tier2-calib.json",scanDir,run,date,time);
+  if ( run == 119) sprintf(JSON_file,"%s/gerda-new-head-%sT%sZ-cal-ged-tier2-calib.json",scanDir,date,time);
   std::ofstream myJSON;
   myJSON.open(JSON_file);
   myJSON << "{" << endl;
@@ -135,14 +134,14 @@ int main(int argc, char *argv[]){
       }
       file.close();
       
-      minFWHM[chn] = FWHM[0];
-      minFWHM_err[chn] = FWHM_err[0];
+      minFWHM[chn] = 10;
+      minFWHM_err[chn] = 10;
       minSigma[chn] = 10;
       minTau[chn] = 160;
       minFT[chn] = 1;
       TH2D *sigmaft = new TH2D("sigmaft","", 6, 0, 30, 5, 0.5, 3);
       for (int i = 0; i < n_lines; i++){
-	if ((chi2[i] < chi_lim)){// && (tau[i]==tau_val) && (FWHM_err[i]<0.06)){
+	if ((chi2[i] < chi_lim) && (FWHM_err[i]<0.09)){// && (tau[i]==tau_val)){
 	  FT_1[j] = FT[i];
 	  sigma_1[j] = sigma[i];
 	  FWHM_1[j] = FWHM[i];
@@ -277,13 +276,13 @@ int main(int argc, char *argv[]){
     
     
     if (chn < 10)
-      sprintf(out,"%d  %4.2f %4.2f %g %3.0f %.0f \n",chn-firstChn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
+      sprintf(out,"%d  %4.2f %4.2f %g %3.1f %.0f \n",chn-firstChn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
     else
-      sprintf(out,"%d %4.2f %4.2f %g %3.0f %.0f \n",chn-firstChn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
+      sprintf(out,"%d %4.2f %4.2f %g %3.1f %.0f \n",chn-firstChn, minFWHM[chn], minFWHM_err[chn], minSigma[chn], minFT[chn], minTau[chn]);
     sprintf(ini,"FilterName[%d]=/nfs/gerda2/LNGSMiB/ZAC_filters/ZACfilter_L155_sigma%.0f_FT%g_tau%.0f.txt",chn-firstChn, minSigma[chn], minFT[chn], minTau[chn]);
     sprintf(ini2,"PulserFilterName[%d]=/nfs/gerda2/LNGSMiB/ZAC_filters/ZACfilter_L155_sigma%.0f_FT%g_tau%.0f.txt",chn-firstChn, minSigma[chn], minFT[chn], minTau[chn]);
     
-    if ( (chn>=36+firstChn) && run > 93) {
+    if ( (chn>=36+firstChn && run>=95) || ( (chn==32||chn==33) && run==119 ) ) {
       if (chn == (nChn-1))
 	sprintf(JSON_out,"      \"zac_filter_physig_%d\": \"L155_sigma%.0f_FT1p5_tau%.0f\"",chn-firstChn, minSigma[chn], minTau[chn]);
       else

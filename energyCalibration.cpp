@@ -216,8 +216,12 @@ int main(int argc, char *argv[]){
     if( filterType != 0 )
       maxFADC[j] = 50000;
     else
-      maxFADC[j] = 30000;
-
+      maxFADC[j] = 20000;
+    
+    if (runNumber == 119) {
+      maxFADC[j] = 10000;
+      rebinFactor = 1.0;
+    }
     if(channelsToRun[j] == 0) {
       cout << endl <<  "******************* channel n." << j << " is OFF *******************" << endl << endl;
       char thisLinCalib0[200];
@@ -386,9 +390,17 @@ int main(int argc, char *argv[]){
 	  data.push_back(thisEne);
 	}
       }
-
+      double posPeak = searchLimits.second;
+      //for (int i = 0; i < h->GetNbinsX(); i++) {
+      //if( h->GetBinContent(h->GetNbinsX()-i) > 100 ) {
+      //posPeak = 0.95*h->GetBinCenter(h->GetNbinsX()-i);
+      //break;
+      //}
+      //}
+      cout << "channel " << j << " max of the spectrum " << posPeak << endl;
+      
       //--------- find parameter of the peak from spectrum -------
-
+      h->GetXaxis()->SetRangeUser(searchLimits.first,posPeak);
       double average = h->GetBinCenter( h->GetMaximumBin());
       cout << "mean = " << average << endl;
       //double min = average - nChs[np];//* 0.99;
